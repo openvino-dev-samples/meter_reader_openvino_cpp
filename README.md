@@ -27,4 +27,4 @@ Please follow the Guides to install [OpenVINO](https://docs.openvino.ai/latest/o
  ```
 ## 6 Results
 the image with inference results will be saved locally.
-[results](https://user-images.githubusercontent.com/91237924/189855947-75b368b9-4680-4cc9-a013-f5f84bb170a2.jpg)
+![results](https://user-images.githubusercontent.com/91237924/189858813-32f064b4-5d9c-4a46-8c10-a48f3b05efa0.jpg)
