@@ -23,7 +23,7 @@ Please follow the Guides to install [OpenVINO](https://docs.openvino.ai/latest/o
 
 ## 5 Run inference
  ```shell
-  $ meter_reader meter_det_model/model.xml meter_seg_model/model.xml data/horses.jpg data/text.jpg
+  $ meter_reader meter_det_model/model.xml meter_seg_model/model.xml data/test.jpg
  ```
 ## 6 Results
 the image with inference results will be saved locally.
