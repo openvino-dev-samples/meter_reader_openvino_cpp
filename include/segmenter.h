@@ -16,7 +16,7 @@ public:
 
     bool init(string xml_path);
 
-    bool process_frame(vector<Mat> &inframes, vector<Mat> &masks);
+    bool run(vector<Mat> &inframes, vector<Mat> &masks);
 
 private:
     // ov::CompiledModel detect_model;

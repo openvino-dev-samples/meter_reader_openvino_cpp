@@ -20,7 +20,7 @@ bool Segmenter::init(string model_path)
     return true;
 }
 
-bool Segmenter::process_frame(vector<Mat> &inframes, vector<Mat> &masks)
+bool Segmenter::run(vector<Mat> &inframes, vector<Mat> &masks)
 {
     static map<int32_t, Vec3b> color_table = {
         {0, Vec3b(0, 0, 0)},

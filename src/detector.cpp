@@ -24,7 +24,7 @@ bool Detector::init(string model_path, double threshold)
     return true;
 }
 
-bool Detector::process_frame(Mat &src_img, vector<Rect> &detected_objects)
+bool Detector::run(Mat &src_img, vector<Rect> &detected_objects)
 {
     int total_num = 22743;
     float mean[3] = {0.485, 0.456, 0.406};

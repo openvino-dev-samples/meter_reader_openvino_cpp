@@ -20,12 +20,12 @@ int main(int argc, char *argv[])
     Segmenter segmenter;
     segmenter.init(segment_model_path);
 
-    detector.process_frame(src_img, detected_objects);
+    detector.run(src_img, detected_objects);
     for (auto detected_object : detected_objects)
     {
         segment_results.push_back(src_img(detected_object));
     }
-    segmenter.process_frame(segment_results, masks);
+    segmenter.run(segment_results, masks);
 
     vector<vector<uint8_t>> seg_label_maps;
     Erode(4, masks, &seg_label_maps);

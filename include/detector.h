@@ -16,7 +16,7 @@ public:
 
     bool init(string xml_path, double threshold);
 
-    bool process_frame(Mat &inframe, vector<Rect> &detected_objects);
+    bool run(Mat &inframe, vector<Rect> &detected_objects);
 
 private:
     // ov::CompiledModel detect_model;

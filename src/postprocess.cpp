@@ -18,7 +18,6 @@ bool Erode(const int32_t &kernel_size,
   Mat kernel(kernel_size, kernel_size, CV_8U, Scalar(1));
   for (auto mask : seg_results) {
     erode(mask, mask, kernel);
-    imwrite("2.jpg", mask);
     vector<uint8_t> map;
     if (mask.isContinuous()) {
         map.assign(mask.data, mask.data + mask.total() * mask.channels());
