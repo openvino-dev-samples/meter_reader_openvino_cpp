@@ -20,7 +20,7 @@ public:
 
 private:
     // ov::CompiledModel detect_model;
-    ov::InferRequest detect_infer_request;
-    string _model_path;
-    float _threshold;
+    ov::InferRequest infer_request;
+    string model_path;
+    float threshold;
 };

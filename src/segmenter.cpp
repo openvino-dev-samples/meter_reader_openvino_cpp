@@ -10,13 +10,13 @@ Segmenter::~Segmenter() {}
 
 bool Segmenter::init(string model_path)
 {
-    _model_path = model_path;
+    this->model_path = model_path;
     ov::Core core;
-    shared_ptr<ov::Model> model = core.read_model(_model_path);
+    shared_ptr<ov::Model> model = core.read_model(this->model_path);
     map<string, ov::PartialShape> name_to_shape;
     model->reshape({{-1, 3, 512, 512}});
     ov::CompiledModel segment_model = core.compile_model(model, "CPU");
-    segment_infer_request = segment_model.create_infer_request();
+    this->infer_request = segment_model.create_infer_request();
     return true;
 }
 
@@ -31,7 +31,7 @@ bool Segmenter::run(vector<Mat> &inframes, vector<Mat> &masks)
     float std[3] = {0.5, 0.5, 0.5};
 
     int batch_size = inframes.size();
-    ov::Tensor input_tensor0 = segment_infer_request.get_input_tensor(0);
+    ov::Tensor input_tensor0 = this->infer_request.get_input_tensor(0);
     input_tensor0.set_shape({batch_size, 3, 512, 512});
     auto data0 = input_tensor0.data<float>();
     // nhwc -> nchw
@@ -52,10 +52,10 @@ bool Segmenter::run(vector<Mat> &inframes, vector<Mat> &masks)
     }
 
     //start inference
-    segment_infer_request.infer();
+    this->infer_request.infer();
 
     //extract the output data
-    auto output = segment_infer_request.get_output_tensor(0);
+    auto output = this->infer_request.get_output_tensor(0);
     const float *result = output.data<const float>();
     // nchw -> nhwc
     for (int batch = 0; batch < batch_size; batch++)

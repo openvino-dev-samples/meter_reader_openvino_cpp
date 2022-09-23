@@ -20,6 +20,6 @@ public:
 
 private:
     // ov::CompiledModel detect_model;
-    ov::InferRequest segment_infer_request;
-    string _model_path;
+    ov::InferRequest infer_request;
+    string model_path;
 };
